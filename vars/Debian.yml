@@ -1,0 +1,3 @@
+__ntp_driftfile: /var/lib/ntp/ntp.drift
+__ntp_pidfile: /var/run/ntpd.pid
+__ntp_service_name: ntp

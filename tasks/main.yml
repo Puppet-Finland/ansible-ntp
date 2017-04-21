@@ -1,0 +1,30 @@
+- include_vars: "{{ ansible_os_family }}.yml"
+- include_vars: "{{ ansible_service_mgr }}.yml"
+- name: ensure ntp is installed
+  package:
+    name=ntp
+    state=present
+- name: ensure ntp config is present
+  template:
+    src=templates/ntp.conf.j2
+    dest=/etc/ntp.conf
+    owner=root
+    group=root
+    mode=0644
+  notify:
+    - restart ntp
+- name: ensure ntp service is running
+  service:
+    name="{{ ntp_service_name }}"
+    enabled=yes
+    state=started
+- name: ensure monit monitors ntp
+  template:
+    src=templates/ntp.monit.j2
+    dest=/etc/monit/conf-enabled/ntp.monit
+    owner=root
+    group=root
+    mode=0644
+  notify:
+    - restart monit
+  when: ntp_manage_monit == "true"

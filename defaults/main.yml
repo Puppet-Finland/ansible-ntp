@@ -1,0 +1,15 @@
+# Operating system abstraction
+ntp_driftfile: "{{ __ntp_driftfile }}"
+ntp_pidfile: "{{ __ntp_pidfile }}"
+ntp_service_name: "{{ __ntp_service_name }}"
+ntp_service_start: "{{ __ntp_service_start }}"
+ntp_service_stop: "{{ __ntp_service_stop }}"
+
+# Policy
+ntp_servers:
+    - 0.ubuntu.pool.ntp.org
+    - 1.ubuntu.pool.ntp.org
+    - 2.ubuntu.pool.ntp.org
+    - 3.ubuntu.pool.ntp.org
+
+ntp_manage_monit: false
