@@ -1,2 +1,2 @@
 __ntp_service_start: "/bin/systemctl start {{ ntp_service_name }}"
-__ntp_service_stop: "/bin/systemctl start {{ ntp_service_name }}"
+__ntp_service_stop: "/bin/systemctl stop {{ ntp_service_name }}"
