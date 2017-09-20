@@ -27,4 +27,4 @@
     mode=0644
   notify:
     - restart monit
-  when: ntp_manage_monit == "true"
+  when: ntp_manage_monit == true
